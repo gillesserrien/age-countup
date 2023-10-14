@@ -73,23 +73,23 @@ const button = document.getElementsByTagName("button")[0];
 const divInput = document.getElementsByClassName("container-age-select")[0];
 const normalDiv = document.getElementsByClassName("container")[0];
 let birthday;
+let currentDate = new Date();
 
 button.addEventListener("click", function () {
   birthday = new Date(userAgeInput.value);
 
-  if (isNaN(birthday.getTime())) {
+  if (isNaN(birthday.getTime()) || birthday>currentDate) {
     userAgeInput.style.color = "red";
   } 
   else 
   {
     divInput.style.display = "none";
-    calculateAge(birthday);
+    calculateAge();
     normalDiv.style.display = "visible";
   }
 });
 
 function calculateAge() {
-  let currentDate = new Date();
 
   let timeDifference = (currentDate - birthday) / 31556900000;
 
