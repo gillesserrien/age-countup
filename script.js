@@ -91,6 +91,7 @@ button.addEventListener("click", function () {
 
 function calculateAge() {
 
+  currentDate = new Date();
   let timeDifference = (currentDate - birthday) / 31556900000;
 
   // Convert the decimal part to a string with 8 decimal places
@@ -105,6 +106,7 @@ function calculateAge() {
 
   bigNumberElement.innerText = Math.floor(timeDifference);
   smallNumberElement.innerText = decimalPartString;
+  console.log(smallNumberElement);
 }
 setInterval(function () {
   calculateAge();
